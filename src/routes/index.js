@@ -1,0 +1,26 @@
+import { Router } from 'express';
+import { authRequired } from '../middlewares/auth.js';
+import { createUser, deleteUser, getUser, login, updateUser } from '../controllers/userController.js';
+import { createCategory, deleteCategory, getCategory, listCategories, updateCategory } from '../controllers/categoryController.js';
+import { createProduct, deleteProduct, getProduct, searchProducts, updateProduct } from '../controllers/productController.js';
+
+const router = Router();
+router.post('/v1/user/token', login);
+router.post('/v1/auth/login', login);
+router.get('/v1/user/:id', getUser);
+router.post('/v1/user', createUser);
+router.put('/v1/user/:id', authRequired, updateUser);
+router.delete('/v1/user/:id', authRequired, deleteUser);
+router.get('/v1/category/search', listCategories);
+router.get('/v1/category', listCategories);
+router.get('/v1/category/:id', getCategory);
+router.post('/v1/category', authRequired, createCategory);
+router.put('/v1/category/:id', authRequired, updateCategory);
+router.delete('/v1/category/:id', authRequired, deleteCategory);
+router.get('/v1/product/search', searchProducts);
+router.get('/v1/search', searchProducts);
+router.get('/v1/product/:id', getProduct);
+router.post('/v1/product', authRequired, createProduct);
+router.put('/v1/product/:id', authRequired, updateProduct);
+router.delete('/v1/product/:id', authRequired, deleteProduct);
+export default router;
