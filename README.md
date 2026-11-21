@@ -76,8 +76,5 @@ npm run migrate
 
 Os arquivos SQL da pasta `migrations` criam usuários, categorias, produtos, imagens, opções e relações entre produtos e categorias.
 
-## Integração da equipe
 
-- Integrantes da equipe: [incluir nomes]
-- Repositório GitHub: [incluir URL]
 
